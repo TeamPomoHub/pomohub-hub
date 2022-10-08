@@ -36,24 +36,26 @@ Another table to link one to many relationships
     cycles -> tasks
         tasks->properties
 
-1. Users
-    -ID (computer)              Primary
-    -Username                   Unique
-2. Session
-    -ID (Session)               Primary
-    -Start Date                 Not NULL
-    -Reference to username
-3. session cycles
+0. Users
+    -ID                         Primary
+    -username
+1. Session
+    -ID
+    -Start Date                 Primary
+    -Session ID
+2. session cycles
     -duration of the cycle
-    -reference to cycles
-    -reference to sessions
-4. Cycle
-    -ID (cycle)
+    -reference to Session ID
+    -reference to Cycle ID
+3. Cycle
+    -ID                         Primary
     -Start time
-    -reference to
-5. Cycle Tasks
-    -reference to cycles
-    -reference to tasks
-6. Tasks
+    -Cycle ID
+4. Cycle Tasks
+    -reference to Cycle ID
+    -reference to Task ID
+5. Tasks
+    -ID                         Primary
     -text
     -status
+    -Tasks ID
