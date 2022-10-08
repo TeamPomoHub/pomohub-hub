@@ -1,4 +1,6 @@
 
-ALTER TABLE Session ADD CONSTRAINT fk_user_id FOREIGN KEY (user_id) REFERENCES "User" (id);
+ALTER TABLE Session 
+    ADD CONSTRAINT FK_USERS_SESSION FOREIGN KEY (username)
+    REFERENCES "users" (id);
 
-ALTER TABLE Session ADD COLUMN user_id INTEGER;
+/*ALTER TABLE Session ADD COLUMN user_id INTEGER;*/
