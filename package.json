@@ -1,7 +1,7 @@
 {
     "scripts": {
         "start": "pwd && ls && cd node_modules && cd .bin && pwd && bash netlify-lambda.cmd && serve src && tsc",
-        "build": "./node_modules/.bin/netlify-lambda && build src & tsc"
+        "production": "./node_modules/.bin/netlify-lambda && build src & tsc"
     },
     "dependencies": {
         "@netlify/functions": "^1.3.0",
