@@ -2,14 +2,16 @@
 
 Repo for the API and Stats website of PomoHub
 
-This application depends on a PostGreSQL database hosted with Railway.
+This application depends on a PostGreSQL database hosted with Railway, and runs an API using Netlify.
+
+To install netlify, run `npm install netlify-cli -g`
 
 To run the dev files locally, run `netlify dev`.
-# pomohub-hub
-Repo for the API and Stats website of PomoHub
+
+## Database Structure Notes
 
 Tables
-way to store 
+way to store
     users
     time
     sessions
@@ -40,7 +42,7 @@ Another table to link one to many relationships
 1. Session
     -id
     -Start Date                 Primary
-    -user_ref
+    -Session ID  
 2. session cycles
     -id                         Primary
     -duration of the cycle
@@ -56,4 +58,5 @@ Another table to link one to many relationships
 5. Tasks
     -id                         Primary
     -text
-    -status              
+    -status
+    -Tasks ID                   

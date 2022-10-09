@@ -23,17 +23,8 @@ ALTER TABLE sessioncycles
     ADD CONSTRAINT FK_sessioncycles_sessions FOREIGN KEY (session_ref)
     REFERENCES "session" (id);
 
-/* adding cycle red to session SessionCycles */
-ALTER TABLE sessioncycles 
-    ADD CONSTRAINT FK_sessioncycle_session_ref FOREIGN KEY (cycle_ref)
-    REFERENCES "cycle" (id);
+ALTER TABLE Session 
+    ADD CONSTRAINT FK_USERS_SESSION FOREIGN KEY (username)
+    REFERENCES "users" (id);
 
-/* adding cycle ref to session CyclesTasks*/
-ALTER TABLE cycletasks 
-    ADD CONSTRAINT FK_cycletasks_cycle FOREIGN KEY (cycle_ref)
-    REFERENCES "cycle" (id);
-
-/* adding task ref to session CyclesTasks */
-ALTER TABLE cycletasks 
-    ADD CONSTRAINT FK_cycletasks_tasks FOREIGN KEY (task_ref)
-    REFERENCES "tasks" (id);
+/*ALTER TABLE Session ADD COLUMN user_id INTEGER;*/
