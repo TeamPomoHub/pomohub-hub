@@ -4,6 +4,7 @@
   "description": "Repo for the API and Stats website of PomoHub",
   "main": "api.js",
   "dependencies": {
+    "@netlify/functions": "^1.3.0",
     "pg": "^8.8.0",
     "pg-native": "^3.0.1",
     "serverless": "^3.22.0"
