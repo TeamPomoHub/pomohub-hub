@@ -1,19 +1,25 @@
 {
-    "scripts": {
-        "start": "pwd && ls && cd node_modules && cd .bin && pwd && bash netlify-lambda.cmd && serve src && tsc",
-        "build": "./node_modules/.bin/netlify-lambda && build src & tsc"
-    },
-    "dependencies": {
-        "@netlify/functions": "^1.2.0",
-        "express": "^4.18.1",
-        "libpq": "^1.8.12",
-        "netlify-lambda": "^2.0.15",
-        "pg": "^8.8.0",
-        "pg-native": "^3.0.1",
-        "serverless-http": "^3.0.2"
-    },
-    "devDependencies": {
-        "@types/pg": "^8.6.5",
-        "typescript": "^4.8.3"
-    }
+  "name": "pomohub-hub",
+  "version": "1.0.0",
+  "description": "Repo for the API and Stats website of PomoHub",
+  "main": "api.js",
+  "dependencies": {
+    "pg": "^8.8.0",
+    "pg-native": "^3.0.1",
+    "serverless": "^3.22.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TeamPomoHub/pomohub-hub.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TeamPomoHub/pomohub-hub/issues"
+  },
+  "homepage": "https://github.com/TeamPomoHub/pomohub-hub#readme"
 }
