@@ -20,11 +20,20 @@ ALTER TABLE session
 
 /* adding session ref to session SessionCycles*/
 ALTER TABLE sessioncycles 
-    ADD CONSTRAINT FK_sessioncycles_sessions FOREIGN KEY (session_ref)
+    ADD CONSTRAINT FK_sessioncycles_session FOREIGN KEY (session_ref)
     REFERENCES "session" (id);
 
-ALTER TABLE Session 
-    ADD CONSTRAINT FK_USERS_SESSION FOREIGN KEY (username)
-    REFERENCES "users" (id);
+/* adding cycle ref to cycle session SessionCycles*/
+ALTER TABLE sessioncycles 
+    ADD CONSTRAINT FK_sessioncycles_session FOREIGN KEY (cycle_ref)
+    REFERENCES "cycle" (id);
 
-/*ALTER TABLE Session ADD COLUMN user_id INTEGER;*/
+/* adding cycle ref to session CycleTasks*/
+ALTER TABLE cycletasks 
+    ADD CONSTRAINT FK_cycletasks_cycle FOREIGN KEY (cycle_ref)
+    REFERENCES "cycle" (id);
+
+/* adding task ref to session CycleTasks*/
+ALTER TABLE sessioncycles 
+    ADD CONSTRAINT FK_sessioncycles_tasks FOREIGN KEY (task_ref)
+    REFERENCES "tasks" (id);
