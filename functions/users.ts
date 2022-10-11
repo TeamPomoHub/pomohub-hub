@@ -1,6 +1,8 @@
 import {formattedReturn, postgresPool} from './utils';
+import { Handler } from '@netlify/functions';
+import {FormattedReturnInterface} from './helpers/formattedReturn';
 
-exports.handler = async(event) => {
+const handler: Handler = async(event): Promise<FormattedReturnInterface> => {
     if (event.httpMethod === 'GET' && event.path.includes('id')) {
         return getUserById(event);
     } else if (event.httpMethod === 'GET') {
@@ -16,7 +18,9 @@ exports.handler = async(event) => {
     }
 };
 
-const getAllUsers = async(event) => {
+export { handler }
+
+const getAllUsers: Function = async(event: any): Promise<FormattedReturnInterface> => {
     try {
         const { rows } = await postgresPool.query('SELECT * FROM users');
         return formattedReturn(200, rows);
@@ -26,7 +30,7 @@ const getAllUsers = async(event) => {
     }
 };
 
-const getUserById = async(event) => {
+const getUserById: Function = async(event: any): Promise<FormattedReturnInterface> => {
     try {
         const { id } = event.pathParameters;
         const { rows } = await postgresPool.query(
@@ -41,7 +45,7 @@ const getUserById = async(event) => {
 };
 
 
-const createUser = async(event) => {
+const createUser: Function = async(event: any): Promise<FormattedReturnInterface> => {
     const { username } = JSON.parse(event.body);
     try {
         const { rows } = await postgresPool.query(
@@ -54,7 +58,7 @@ const createUser = async(event) => {
     }
 };
 
-const updateUserById = async(event) => {
+const updateUserById: Function = async(event: any): Promise<FormattedReturnInterface> => {
     const { id, username } = JSON.parse(event.body);
     try {
         const { rows } = await postgresPool.query(
@@ -67,7 +71,7 @@ const updateUserById = async(event) => {
     }
 };
 
-const deleteUserById = async(event) => {
+const deleteUserById: Function = async(event: any): Promise<FormattedReturnInterface> => {
     const { id } = JSON.parse(event.body);
     try {
         const { rows } = await postgresPool.query(

@@ -1,6 +1,8 @@
 import {formattedReturn, postgresPool} from './utils';
+import { Handler } from '@netlify/functions';
+import {FormattedReturnInterface} from './helpers/formattedReturn';
 
-exports.handler = async(event) => {
+const handler: Handler = async(event, context) => {
     if (event.httpMethod === 'GET' && event.path.includes('id')) {
         return getSessionById(event);
     } else if (event.httpMethod === 'GET') {
@@ -12,7 +14,9 @@ exports.handler = async(event) => {
     }
 };
 
-const getAllSessions = async(event) => {
+export { handler}
+
+const getAllSessions: Function = async(event: any): Promise<FormattedReturnInterface> => {
     try {
         const { rows } = await postgresPool.query('SELECT * FROM session');
         return formattedReturn(200, rows);
@@ -22,7 +26,7 @@ const getAllSessions = async(event) => {
     }
 };
 
-const getSessionById = async(event) => {
+const getSessionById: Function = async(event: any): Promise<FormattedReturnInterface> => {
     try {
         const { id } = event.pathParameters;
         const { rows } = await postgresPool.query(
@@ -37,7 +41,7 @@ const getSessionById = async(event) => {
 };
 
 
-const createSession = async(event) => {
+const createSession: Function = async(event: any): Promise<FormattedReturnInterface> => {
     const { username, startDate } = JSON.parse(event.body);
     try {
         const { rows } = await postgresPool.query(
