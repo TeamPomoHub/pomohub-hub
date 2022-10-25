@@ -1,5 +1,5 @@
 import formattedReturn from './helpers/formattedReturn';
-import * as postgresPool from './helpers/postgresPool';
+import * as postgresPool from './helpers/postgres';
 //import the two lines above
 
 exports.handler = async(event) => {
