@@ -1,5 +1,5 @@
-const formattedReturn = require('./helpers/formattedReturn');
-const postgresPool = require('./helpers/postgres').pool;
+import * as formattedReturn from './helpers/formattedReturn';
+import * as postgresPool from './helpers/postgres';
 
 exports.handler = async(event) => {
     if (event.httpMethod === 'GET' && event.path.includes('id')) {

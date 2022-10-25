@@ -1,6 +1,5 @@
-import formattedReturn from './helpers/formattedReturn';
+import * as formattedReturn from './helpers/formattedReturn';
 import * as postgresPool from './helpers/postgres';
-//import the two lines above
 
 exports.handler = async(event) => {
     if (event.httpMethod === 'GET' && event.path.includes('id')) {
