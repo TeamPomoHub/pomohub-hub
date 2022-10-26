@@ -1,6 +1,8 @@
 import * as formattedReturn from './helpers/formattedReturn';
 import * as postgresPool from './helpers/postgres';
 
+// Path: functions/helpers/postgres.ts?
+
 exports.handler = async(event) => {
     if (event.httpMethod === 'GET' && event.path.includes('id')) {
         return getUserById(event);
