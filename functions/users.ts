@@ -1,4 +1,4 @@
-import * as formattedReturn from './helpers/formattedReturn';
+import formattedReturn from './helpers/formattedReturn';
 import * as postgresPool from './helpers/postgres';
 
 // Path: functions/helpers/postgres.ts?
